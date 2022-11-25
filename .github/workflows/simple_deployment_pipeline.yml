@@ -29,4 +29,4 @@ jobs:
       - name: react app test
         run: |
           cd bloglist-frontend
-          npm run test
+          CI=true npm test
