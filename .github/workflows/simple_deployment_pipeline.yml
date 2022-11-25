@@ -30,3 +30,11 @@ jobs:
         run: |
           cd bloglist-frontend
           CI=true npm test
+      - name: build react app
+        run: |
+          cd bloglist-frontend
+          npm run build
+          cp -r build ../.
+          ls -la
+          cd ../
+          ls -la
