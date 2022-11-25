@@ -16,7 +16,7 @@ describe('Blog app', function() {
       name: 'delete tester'
     }
     cy.request('POST', 'http://localhost:3003/api/users', userTest)
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3003')
   })
 
   it('login form is shown', function() {

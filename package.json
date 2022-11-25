@@ -9,7 +9,8 @@
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start:test": "cross-env NODE_ENV=test node index.js"
+    "start:test": "cross-env NODE_ENV=test node index.js",
+    "test:e2e": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/mjbalagtas/part4#readme",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "cypress": "^11.2.0",
     "eslint": "^8.1.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jest": "^27.1.6",
