@@ -1,0 +1,42 @@
+GET http://localhost:3003/api/users
+###
+GET http://localhost:3003/api/blogs
+###
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "user",
+    "password": "user",
+    "name": "super-user"
+}
+###
+DELETE http://localhost:3003/api/blogs/61826d905df2601fc8245b89
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjYxODI2Y2ZhNWRmMjYwMWZjODI0NWI4MyIsImlhdCI6MTYzNTk0MDM2NX0.JmFiXwFuGrPV35Q-e8h3QtZhAAvG-E8zgOSCqM84QXE
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjYxODI2Y2ZhNWRmMjYwMWZjODI0NWI4MyIsImlhdCI6MTYzNjQ4NDc3Nn0.SMpLLa6RQPGBoMtmWvm1d8Adph0lRD5_npYPWEw089M
+
+{
+    "title": "new post by user",
+    "author": "self-updated",
+    "url": "localhost/first/self/new"
+}
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "user",
+    "password": "root"
+}
+###
+POST http://localhost:3003/api/testing/reset
+###
+POST http://localhost:3003/api/blogs/61997166b83ee363b4015df1/comments
+Content-Type: application/json
+
+{
+    "comment": "comment 2 on backend"
+}
