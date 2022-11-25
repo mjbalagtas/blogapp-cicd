@@ -3,7 +3,7 @@ name: DEPLOYMENT PIPELINE FOR BLOGAPP
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches: [ master ]
     types: [ opened, synchronize ]
