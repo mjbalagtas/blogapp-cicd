@@ -26,10 +26,6 @@ jobs:
           npm run lint
           cd bloglist-frontend
           npm run eslint
-      - name: react app test
-        run: |
-          cd bloglist-frontend
-          CI=true npm test
       - name: build react app
         run: |
           cd bloglist-frontend
@@ -38,3 +34,16 @@ jobs:
           ls -la
           cd ../
           ls -la
+      - name: react app test
+        run: |
+          cd bloglist-frontend
+          CI=true npm test
+      - name: integration test
+        run: |
+          npm run test
+      - name: e2e test
+        uses: cypress-io/github-action@v4
+        with:
+          #build: npm run build
+          start: npm start
+          wait-on: http://localhost:3003
