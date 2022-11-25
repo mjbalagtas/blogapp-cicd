@@ -21,6 +21,7 @@ jobs:
           npm install
           cd bloglist-frontend
           npm install
+          ls -la
       - name: linter
         run: |
           ls -la
