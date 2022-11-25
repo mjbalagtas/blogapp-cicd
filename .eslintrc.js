@@ -3,9 +3,10 @@ module.exports = {
         'commonjs': true,
         'es2021': true,
         'node': true,
-        'jest/globals': true
+        'jest/globals': true,
+        'cypress/globals': true
     },
-    'plugins': ['jest'],
+    'plugins': ['jest', 'cypress'],
     'extends': 'eslint:recommended',
     'parserOptions': {
         'ecmaVersion': 13

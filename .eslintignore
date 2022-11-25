@@ -1,1 +1,6 @@
 bloglist-frontend
+node_modules
+build
+.eslintrc.js
+cypress/
+cypress.config.js
