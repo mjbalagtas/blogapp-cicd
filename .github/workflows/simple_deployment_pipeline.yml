@@ -21,7 +21,8 @@ jobs:
           npm install
           cd bloglist-frontend
           npm install
-          ls -la
       - name: linter
         run: |
-          ls -la
+          npm run lint
+          cd bloglist-frontend
+          npm run eslint
