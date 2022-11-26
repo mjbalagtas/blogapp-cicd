@@ -2,3 +2,12 @@ Dockerfile
 .dockerignore
 node_modules
 .git
+.env
+cypress
+rest
+bloglist-frontend
+cypress.config.js
+.eslintrc.js
+.eslintignore
+.github
+tests

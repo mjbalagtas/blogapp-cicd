@@ -32,7 +32,7 @@ const LoginForm = ({ userLoggingIn }) => {
           <label>Password: </label>
           <input
             id = "password"
-            type = "text"
+            type = "password"
             value = {password}
             name = "Password"
             onChange = {({ target }) => setPassword(target.value)}

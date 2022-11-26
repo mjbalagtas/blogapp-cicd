@@ -28,15 +28,6 @@ jobs:
           npm install
           cd bloglist-frontend
           npm install
-      # - name: create env file
-      #   run: |
-      #     touch .env
-      #     echo ${TEST_MONGODB_URI} > .env
-      #     echo ${MONGODB_URI} >> .env
-      #     echo ${SECRET} >> .env
-      #     echo ${PORT} >> .env
-      #     cat .env
-      #     ls -la
       - name: linter
         run: |
           npm run lint
@@ -44,12 +35,7 @@ jobs:
           npm run eslint
       - name: build react app
         run: |
-          cd bloglist-frontend
           npm run build
-          cp -r build ../.
-          ls -la
-          cd ../
-          ls -la
       - name: react app test
         run: |
           cd bloglist-frontend
@@ -60,7 +46,7 @@ jobs:
       - name: e2e test
         uses: cypress-io/github-action@v4
         with:
-          #build: npm run build
+          build: npm run build
           start: npm start
           wait-on: http://localhost:3003
       - name: deploy to internet
