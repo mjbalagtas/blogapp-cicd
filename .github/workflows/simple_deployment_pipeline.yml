@@ -21,6 +21,9 @@ jobs:
           npm install
           cd bloglist-frontend
           npm install
+      - name: create env file
+        run: |
+        echo ${{ secrets.ENV_FILE }} > .env
       - name: linter
         run: |
           npm run lint
