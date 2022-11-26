@@ -30,10 +30,10 @@ jobs:
       - name: create env file
         run: |
           touch .env
-          echo ${{ TEST_MONGODB_URI }} > .env
-          echo ${{ MONGODB_URI }} >> .env
-          echo ${{ SECRET }} >> .env
-          echo ${{ PORT }} >> .env
+          echo ${TEST_MONGODB_URI} > .env
+          echo ${MONGODB_URI} >> .env
+          echo ${SECRET} >> .env
+          echo ${PORT} >> .env
           cat .env
           ls -la
       - name: linter
