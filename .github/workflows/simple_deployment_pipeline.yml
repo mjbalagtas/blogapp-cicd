@@ -8,6 +8,12 @@ on:
     branches: [ master ]
     types: [ opened, synchronize ]
 
+env:
+  TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  SECRET: ${{ secrets.SECRET }}
+  PORT: ${{ secrets.PORT }}
+
 jobs:
   builder:
     runs-on: ubuntu-20.04
@@ -23,7 +29,11 @@ jobs:
           npm install
       - name: create env file
         run: |
-          echo ${{ secrets.ENV_FILE }} > .env
+          touch .env
+          echo ${{ TEST_MONGODB_URI }} > .env
+          echo ${{ MONGODB_URI }} >> .env
+          echo ${{ SECRET }} >> .env
+          echo ${{ PORT }} >> .env
           cat .env
           ls -la
       - name: linter
