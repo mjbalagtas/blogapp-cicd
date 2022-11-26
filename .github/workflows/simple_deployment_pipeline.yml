@@ -24,6 +24,8 @@ jobs:
       - name: create env file
         run: |
           echo ${{ secrets.ENV_FILE }} > .env
+          cat .env
+          ls -la
       - name: linter
         run: |
           npm run lint
@@ -44,6 +46,7 @@ jobs:
       - name: integration test
         run: |
           cat .env
+          ls -la
           npm run test
       - name: e2e test
         uses: cypress-io/github-action@v4
