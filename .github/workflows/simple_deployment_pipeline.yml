@@ -43,6 +43,7 @@ jobs:
           CI=true npm test
       - name: integration test
         run: |
+          cat .env
           npm run test
       - name: e2e test
         uses: cypress-io/github-action@v4
