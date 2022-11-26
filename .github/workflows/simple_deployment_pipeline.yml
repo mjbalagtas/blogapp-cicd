@@ -47,7 +47,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           build: npm run build
-          start: npm start
+          start: npm run start:test
           wait-on: http://localhost:3003
       - name: deploy to internet
         uses: superfly/flyctl-actions/setup-flyctl@master
