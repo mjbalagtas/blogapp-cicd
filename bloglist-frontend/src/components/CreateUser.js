@@ -22,7 +22,7 @@ const CreateUser = ({ createUser }) => {
         <div>
           <label>Username: </label>
           <input
-            id = "username"
+            id = "createuser-username"
             type = "text"
             value = {username}
             name = "Username"
@@ -32,7 +32,7 @@ const CreateUser = ({ createUser }) => {
         <div>
           <label>Name: </label>
           <input
-            id = "name"
+            id = "createuser-name"
             type = "text"
             value = {name}
             name = "name"
@@ -42,7 +42,7 @@ const CreateUser = ({ createUser }) => {
         <div>
           <label>Password: </label>
           <input
-            id = "password"
+            id = "createuser-password"
             type = "password"
             value = {password}
             name = "Password"

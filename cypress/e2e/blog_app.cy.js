@@ -27,6 +27,7 @@ describe('Blog app', function() {
 
     describe('Login', function() {
         it('succeeds with correct credentials', function() {
+            cy.contains('login').click()
             cy.get('#username').type('mark')
             cy.get('#password').type('mark')
             cy.get('#login-button').click()
@@ -37,6 +38,7 @@ describe('Blog app', function() {
         })
 
         it('fails with wrong credentials', function() {
+            cy.contains('login').click()
             cy.get('#username').type('mark')
             cy.get('#password').type('wrongpassword')
             cy.get('#login-button').click()
@@ -49,6 +51,7 @@ describe('Blog app', function() {
 
     describe('When logged in', function() {
         beforeEach(function() {
+            cy.contains('login').click()
             cy.get('#username').type('mark')
             cy.get('#password').type('mark')
             cy.get('#login-button').click()
@@ -100,6 +103,7 @@ describe('Blog app', function() {
                 cy.contains('MARK BALAGTAS logged in')
                 cy.get('#logout-button').click()
 
+                cy.contains('login').click()
                 cy.get('#username').type('test')
                 cy.get('#password').type('delete')
                 cy.get('#login-button').click()
