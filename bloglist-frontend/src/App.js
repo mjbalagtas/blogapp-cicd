@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import Blog from './components/Blog'
 import CreateForm from './components/CreateForm'
 import LoginForm from './components/LoginForm'
+import CreateUser from './components/CreateUser'
 import Logout from './components/Logout'
 import Notification from './components/Notification'
 import Togglable from './components/Togglable'
 import blogService from './services/blogs'
 import loginService from './services/login'
+import userService from './services/user'
 
 const App = () => {
   const [blogs, setBlogs] = useState([])
@@ -16,10 +18,12 @@ const App = () => {
   const [success, setSuccess] = useState(null)
 
   const createBlogRef = useRef()
+  const createUserRef = useRef()
+  const loginRef = useRef()
 
   const handleLogin = async (userObject) => {
     try{
-      console.log('userobj', userObject)
+      loginRef.current.toggleVisibility()
       const user = await loginService.login({
         username: userObject.username,
         password: userObject.password })
@@ -31,6 +35,33 @@ const App = () => {
       setUser(user)
     }catch(exception){
       setMessage('wrong username or password')
+      setSuccess(false)
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+    }
+  }
+
+  const handleCreateUser = async (userObject) => {
+    try{
+      createUserRef.current.toggleVisibility()
+      await userService.createUser({
+        username: userObject.username,
+        password: userObject.password,
+        name: userObject.name })
+      // window.localStorage.setItem(
+      //   'loggedInData', JSON.stringify(user)
+      // )
+
+      // blogService.setToken(user.token)
+      // setUser(user)
+      setMessage('A new user created. Please login')
+      setSuccess(true)
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+    }catch(exception){
+      setMessage('invalid username or password')
       setSuccess(false)
       setTimeout(() => {
         setMessage(null)
@@ -109,7 +140,15 @@ const App = () => {
   }, [])
 
   const loginForm = () => (
-    <LoginForm userLoggingIn={handleLogin} />
+    <Togglable buttonLabel="login" ref ={loginRef}>
+      <LoginForm userLoggingIn={handleLogin} />
+    </Togglable>
+  )
+
+  const createUser = () => (
+    <Togglable buttonLabel="create new user" ref ={createUserRef}>
+      <CreateUser createUser={handleCreateUser} />
+    </Togglable>
   )
 
   const createForm = () => (
@@ -138,6 +177,7 @@ const App = () => {
           <h2>Blogs</h2>
           <Notification message={message} success={success} />
           {loginForm()}
+          {createUser()}
         </div>
         : <div>
           <h2>Blogs</h2>

@@ -2,11 +2,11 @@ GET http://localhost:3003/api/users
 ###
 GET http://localhost:3003/api/blogs
 ###
-POST http://localhost:3003/api/users
+POST https://blogapp-cicd.fly.dev/api/users
 Content-Type: application/json
 
 {
-    "username": "mark-01",
+    "username": "mark-03",
     "password": "user",
     "name": "super-user"
 }
