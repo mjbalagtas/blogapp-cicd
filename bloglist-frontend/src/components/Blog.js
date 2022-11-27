@@ -45,7 +45,7 @@ const Blog = ({ blog, updateLike, deleteBlog }) => {
         ?
         <div style={hideWhenVisible}>
           <div>
-          <a href={blog.url} rel="noopener" target="_blank" >{blog.url}</a>
+            <a href={blog.url} target="_blank" rel="noreferrer">{blog.url}</a>
           </div>
           <div className= "likeDiv">
             {blog.likes}
